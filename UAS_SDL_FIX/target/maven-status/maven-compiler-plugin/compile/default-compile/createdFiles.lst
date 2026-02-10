@@ -1,0 +1,8 @@
+com\mycompany\uas_sdl_fix\ReceiptPrinter.class
+com\mycompany\uas_sdl_fix\Database.class
+com\mycompany\uas_sdl_fix\Transaction$CartItem.class
+com\mycompany\uas_sdl_fix\Transaction.class
+com\mycompany\uas_sdl_fix\Customer.class
+com\mycompany\uas_sdl_fix\Supermarket.class
+com\mycompany\uas_sdl_fix\Product.class
+com\mycompany\uas_sdl_fix\Supermarket$Cashier.class

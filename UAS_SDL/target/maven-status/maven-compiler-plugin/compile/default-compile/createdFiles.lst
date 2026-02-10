@@ -1,0 +1,8 @@
+com\mycompany\uas_sdl\SupermarketPOS.class
+com\mycompany\uas_sdl\Transaction.class
+com\mycompany\uas_sdl\Database.class
+com\mycompany\uas_sdl\Product.class
+com\mycompany\uas_sdl\CartItem.class
+com\mycompany\uas_sdl\CashierAuthenticator.class
+com\mycompany\uas_sdl\ReceiptPrinter.class
+com\mycompany\uas_sdl\Customer.class

@@ -1,0 +1,189 @@
+package gui;
+
+/*
+    Introduction to OOP with Java 4th Ed, McGraw-Hill
+
+    Wu/Otani
+
+    Chapter 14 Sample Program: Displays a frame with two menus
+
+    File: Ch14JMenuFrame.java
+
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ *   class Ch14JMenuFrame
+ *
+ *   This frame includes one MenuBar, two Menu objects File and Edit,
+ *   and eight MenuItem objects. When a menu item is selected, a string
+ *   showing which menu choice is selected will appear on the frame.
+ *
+ * @author Dr. Caffeine
+ */
+
+class Ch14JInternalFrame extends JFrame
+{
+
+//----------------------------------
+//    Data Members
+//----------------------------------
+
+    /**
+     * Default frame width
+     */
+    private static final int FRAME_WIDTH    = 1000;
+
+    /**
+     * Default frame height
+     */
+    private static final int FRAME_HEIGHT   = 600;
+
+    /**
+     * X coordinate of the frame default origin point
+     */
+    private static final int FRAME_X_ORIGIN = 150;
+
+    /**
+     * Y coordinate of the frame default origin point
+     */
+    private static final int FRAME_Y_ORIGIN = 250;
+
+    /**
+     * Text shown in response to the menu selection
+     */
+    private JLabel   response;
+
+    /**
+     * File menu group
+     */
+    private JMenu    fileMenu;
+
+    /**
+     * Edi menu group
+     */
+    private JMenu    editMenu;
+    Container contentPane;
+//    Container con=this.getContentPane();
+    private JTextField jf;
+
+
+//----------------------------------
+//      Main method
+//----------------------------------
+    public static void main(String[] args) {
+        Ch14JInternalFrame frame = new Ch14JInternalFrame();
+        frame.setVisible(true);
+    }
+
+//----------------------------------
+//    Constructors
+//----------------------------------
+
+    /**
+     * Default constructor
+     */
+    public Ch14JInternalFrame() {
+        
+        
+
+        //set the frame properties
+        setTitle     ("Ch14JMenuFrame");
+        setSize      (FRAME_WIDTH, FRAME_HEIGHT);
+        setResizable (false);
+        setLocation  (FRAME_X_ORIGIN, FRAME_Y_ORIGIN);
+
+
+        contentPane = getContentPane( );
+        contentPane.setLayout(new FlowLayout());
+
+
+        //create two menus and their menu items
+        createFileMenu();
+        createEditMenu();
+
+        //and add them to the menubar
+        JMenuBar menuBar = new JMenuBar();
+        this.setJMenuBar(menuBar);
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+
+        //create and position reponse label
+        response = new JLabel("Hello, this is your menu tester." );
+        response.setSize(250, 50);
+        contentPane.add(response);
+        JPanel ji1=new JPanel();
+//            JInternalFrame1 ji1=new JInternalFrame1();
+//            JFrame ji1=new JFrame();
+//            ji1.setTitle(menuName);
+            
+
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+
+//-------------------------------------------------
+//      Public Methods:
+//
+//          void    actionPerformed   (   ActionEvent        )
+//
+//------------------------------------------------
+
+//-------------------------------------------------
+//      Private Methods:
+//
+//          void   createFileMenu   (           )
+//          void   createEditMenu   (           )
+//
+//------------------------------------------------
+
+    /**
+     * Create File menu and its menu items
+     *
+     */
+    private void createFileMenu( ) {
+        JMenuItem    item;
+
+        fileMenu = new JMenu("File");
+
+        item = new JMenuItem("Baru");        //New
+        fileMenu.add( item );
+
+        item = new JMenuItem("Open...");    //Open...
+        fileMenu.add( item );
+
+        item = new JMenuItem("Save");       //Save
+        fileMenu.add( item );
+
+        item = new JMenuItem("Save As..."); //Save As...
+        fileMenu.add( item );
+
+        fileMenu.addSeparator();           //add a horizontal separator line
+
+        item = new JMenuItem("Quit");       //Quit
+        fileMenu.add( item );
+    }
+
+    /**
+     * Create Edit menu and its menu items
+     *
+     */
+    private void createEditMenu( ) {
+        JMenuItem    item;
+
+        editMenu = new JMenu("Edit");
+
+        item = new JMenuItem("Cut");      //Cut
+        editMenu.add( item );
+
+        item = new JMenuItem("Copy");    //Copy
+        editMenu.add( item );
+
+        item = new JMenuItem("Paste");    //Paste
+        editMenu.add( item );
+    }
+
+}

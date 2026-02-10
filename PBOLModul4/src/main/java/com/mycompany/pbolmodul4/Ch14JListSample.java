@@ -1,0 +1,73 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.pbolmodul4;
+
+/**
+ *
+ * @author Celvin Pati
+ */
+import javax.swing.*;
+import java.awt.*;
+
+class Ch14JListSample extends JFrame {
+
+    private static final int FRAME_WIDTH = 300;
+    private static final int FRAME_HEIGHT = 250;
+    private static final int FRAME_X_ORIGIN = 150;
+    private static final int FRAME_Y_ORIGIN = 250;
+
+    private JList<String> list;
+
+    public static void main(String[] args) {
+        Ch14JListSample frame = new Ch14JListSample();
+        frame.setVisible(true);
+    }
+
+    public Ch14JListSample() {
+        Container contentPane;
+        JPanel listPanel, okPanel;
+        JButton okButton;
+
+        // Data untuk JList
+        String[] names = { 
+            "Ape", "Bat", "Bee", "Cat", 
+            "Dog", "Eel", "Fox", "Gnu", 
+            "Hen", "Man", "Sow", "Yak" 
+        };
+
+        // Atur ukuran, judul, dan lokasi frame
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setTitle("Program Ch14JListSample");
+        setLocation(FRAME_X_ORIGIN, FRAME_Y_ORIGIN);
+
+        // Atur content pane
+        contentPane = getContentPane();
+        contentPane.setBackground(Color.white);
+        contentPane.setLayout(new BorderLayout());
+
+        // Panel untuk JList
+        listPanel = new JPanel(new GridLayout(0, 1));
+        listPanel.setBorder(
+            BorderFactory.createTitledBorder("Three-letter Animal Names")
+        );
+
+        // Buat JList
+        list = new JList<>(names);
+        listPanel.add(new JScrollPane(list));
+
+        // Panel untuk tombol OK
+        okPanel = new JPanel(new FlowLayout());
+        okButton = new JButton("OK");
+        okPanel.add(okButton);
+
+        // Tambahkan panel ke content pane
+        contentPane.add(listPanel, BorderLayout.CENTER);
+        contentPane.add(okPanel, BorderLayout.SOUTH);
+
+        // Tutup program saat jendela ditutup
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+}
+
